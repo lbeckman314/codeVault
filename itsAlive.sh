@@ -3,11 +3,12 @@
 #------------------------------------------------------------------------------------------------------
 # PURPOSE ----------- This program installs my favorite programs on a fresh install of ubuntu!
 # AUTHOR ------------ liam beckman
-# DATE -------------- 23 march 2017
 # SOURCES ----------- none
 # WRITTEN WITH ------ Sublime Text 3 Build 3126
 # COMPILED WITH ----- gcc (Ubuntu 5.4.1-2ubuntu1~16.04) 5.4.1 20160904 on Ubuntu 16.04 xenial        
 # EXECUTE COMMAND --- ./itsAlive.sh
+# DATE -------------- 26 march 2017
+# MODIFICATIONS ----- updated dropbox daemon command
 #-------------------------------------------------------------------------------------------------------
 
 installPrograms()
@@ -17,7 +18,7 @@ installPrograms()
     #-----------------------------------------------#
 
     cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
-    ~/.dropbox-dist/dropboxd
+    (~/.dropbox-dist/dropboxd &)    #launches dropbox daemon in bckground
 
     #-----------------------------------------------#
     # evince
