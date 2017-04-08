@@ -44,12 +44,12 @@ for file in *
                 for fileABC in *
                     do
                         #echo -n └──
-                        awk '/PURPOSE/ { ORS = ",,"; printf "└──'$fileABC',,"; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/blob/master/"FILENAME")"; printf "\n" }' "$fileABC" >> ../liber8/index.txt
+                        awk '/PURPOSE/ { ORS = ",,"; printf "└──'$fileABC',,"; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"FILENAME")"; printf "\n" }' "$fileABC" >> ../liber8/index.txt
                     done
                 echo >> ../liber8/index.txt
                 cd ..
         fi
-    ls | grep ".sublime-build" | awk '{ ORS = ",,"; print $0; print null; print null; printf "(www.github.com/lbeckman314/codeVault/master/"$NF")" " (raw.githubusercontent.com/lbeckman314/codeVault/blob/master/"$NF")"; printf "\n" }' >> liber8/index.txt
+    ls | grep ".sublime-build" | awk '{ ORS = ",,"; print $0; print null; print null; printf "(www.github.com/lbeckman314/codeVault/master/"$NF")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"$NF")"; printf "\n" }' >> liber8/index.txt
     done #> result.txt
 
 
