@@ -242,3 +242,5 @@ mv liber8/index.txt liber8/index.html
 
 
 cp liber8/index.html ~/Documents/website/code/index.md
+
+mv liber8/index.md README.md
