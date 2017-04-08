@@ -34,7 +34,7 @@ for file in *
     do
         if [ -f "$file" ] && [ "$file" != testing.sh ] && [ "$file" != LICENSE ]
             then
-                awk '/PURPOSE/ { ORS = ",,"; print FILENAME; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/blob/master/"FILENAME")"; printf "\n\n" }' "$file" >> liber8/index.txt
+                awk '/PURPOSE/ { ORS = ",,"; print FILENAME; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"FILENAME")"; printf "\n\n" }' "$file" >> liber8/index.txt
         elif [ -d "$file" ] && [ "$file" != liber8 ] && [ "$file" != .git ]
             then
                 cd "$file"
@@ -217,7 +217,7 @@ sed -i 's:,,: | :g' liber8/index.md
 sed -i 's:^:| :' liber8/index.md
 sed -i 's/(https:\/\/www.github.com/[github](https:\/\/www.github.com/g' liber8/index.md
 sed -i 's/(https:\/\/raw.githubusercontent.com/<br \/>[raw](https:\/\/raw.githubusercontent.com/g' liber8/index.md
-sed -i 's:lbeckman314/*:lbeckman314*):g' liber8/index.md
+#sed -i 's:lbeckman314/*:lbeckman314*):g' liber8/index.md
 sed -i 's:├:<br />├:g' liber8/index.md
 sed -i 's:└:<br />└:g' liber8/index.md
 sed -i 's/*)//g' liber8/index.md
