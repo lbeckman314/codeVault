@@ -1,13 +1,14 @@
 #!/bin/bash
 
-#----------------------------------------------------------------------------------------------------------
-# AUTHOR ---------- liam beckman
-# DATE ------------ 26 november 2016 saturday
-# PURPOSE --------- This program provides a menu interface for common *NIX activities
-# SOURCES --------- none
-# ASSIGNMENT ------ cs140u assignment 6 (due 27 november 2016 sunday)
-# COMPILED WITH --- GNU bash, version 4.3.46(1)-release (x86_64-pc-linux-gnu)
-#-----------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------
+# PURPOSE ------------ This program provides a menu interface for common *NIX activities
+# DATE --------------- 26 november 2016 saturday
+# AUTHOR ------------- liam beckman
+# SOURCES ------------ none
+# ASSIGNMENT --------- cs140u assignment 6 (due 27 november 2016 sunday)
+# WRITTEN WITH ------- Sublime Text 3 Build 3126
+# COMPILED WITH ------ GNU bash, version 4.3.46(1)-release (x86_64-pc-linux-gnu)        
+#-------------------------------------------------------------------------------------------------------
 
 response = "a"  #initialize the response variable to a non-"j" value so that the until loop will run 
 clear   #clean the screen

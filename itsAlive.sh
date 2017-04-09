@@ -1,15 +1,15 @@
 #!/bin/bash
 
 #------------------------------------------------------------------------------------------------------
-# PURPOSE ----------- This program installs my favorite programs on a fresh install of ubuntu!
-# CREATED ----------- 26 march 2017
-# AUTHOR ------------ liam beckman
-# SOURCES ----------- none
-# WRITTEN WITH ------ Sublime Text 3 Build 3126
-# COMPILED WITH ----- gcc (Ubuntu 5.4.1-2ubuntu1~16.04) 5.4.1 20160904 on Ubuntu 16.04 xenial        
-# EXECUTE COMMAND --- ./itsAlive.sh
-# VERSION ----------- 2017-03-26
-# MODIFICATIONS ----- updated dropbox daemon command
+# PURPOSE ------------ This program installs my favorite programs on a fresh install of ubuntu!
+# DATE --------------- 26 march 2017
+# AUTHOR ------------- liam beckman
+# SOURCES ------------ none
+# WRITTEN WITH ------- Sublime Text 3 Build 3126
+# COMPILED WITH ------ gcc (Ubuntu 5.4.1-2ubuntu1~16.04) 5.4.1 20160904 on Ubuntu 16.04 xenial        
+# EXECUTE COMMAND ---- ./itsAlive.sh
+# VERSION ------------ 2017-03-26
+# MODIFICATIONS ------ updated dropbox daemon command
 #-------------------------------------------------------------------------------------------------------
 
 installPrograms()

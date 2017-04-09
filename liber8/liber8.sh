@@ -26,30 +26,42 @@
 #awk '/PURPOSE/ { ORS = ",,"; print FILENAME; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/blob/master/"FILENAME")"; printf "\n" }' *.cpp > liber8/index.txt 
 #ls | grep ".txt" | awk '{ ORS = ",,"; print $0; print null; print null; printf "(www.github.com/lbeckman314/codeVault/master/"$NF")" " (raw.githubusercontent.com/lbeckman314/codeVault/blob/master/"$NF")"; printf "\n" }' >> liber8/index.txt
 
-rm index.txt
+#rm index.txt
 
 cd ..
 
 for file in *
     do
-        if [ -f "$file" ] && [ "$file" != testing.sh ] && [ "$file" != LICENSE ]
+        if [ -f "$file" ] && [ "$file" != LICENSE ]
             then
+            #if grep -c 'PURPOSE' "$file" > /dev/null
+            #   then
                 awk '/PURPOSE/ { ORS = ",,"; print FILENAME; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"FILENAME")"; printf "\n\n" }' "$file" >> liber8/index.txt
+            #else
+            #    echo '"$file",,,,,,' >> liber8/index.txt
+           #fi
         elif [ -d "$file" ] && [ "$file" != liber8 ] && [ "$file" != .git ]
             then
                 cd "$file"
                 echo "$file" >> ../liber8/index.txt
-                echo -n ├── >> ../liber8/index.txt
-                ls | grep ".txt" | awk '{ print $0; }' >> ../liber8/index.txt
+                #echo -n ├── >> ../liber8/index.txt
+                ls | grep ".txt" | awk '{ printf "├── "$0""; }' >> ../liber8/index.txt
+                ls | grep ".sublime-build" | awk '{ printf "├── "$0""; }' >> ../liber8/index.txt
+                #tree -o ../liber8.index.txt
                 for fileABC in *
                     do
-                        #echo -n └──
-                        awk '/PURPOSE/ { ORS = ",,"; printf "└──'$fileABC',,"; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"FILENAME")"; printf "\n" }' "$fileABC" >> ../liber8/index.txt
+                        #if grep -c 'PURPOSE' "$fileABC" > 0 
+                            #then
+                                #echo -n └──
+                                awk '/PURPOSE/ { ORS = ",,"; printf "└── '$fileABC',,"; print $0 } /DATE/ { print $0; printf "(www.github.com/lbeckman314/codeVault/blob/master/"FILENAME")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"FILENAME")"; printf "\n" }' "$fileABC" >> ../liber8/index.txt
+                        #else
+                            #echo '"$fileABC",,,,,,' >> ../liber8/index.txt
+                        #fi
                     done
                 echo >> ../liber8/index.txt
                 cd ..
         fi
-    ls | grep ".sublime-build" | awk '{ ORS = ",,"; print $0; print null; print null; printf "(www.github.com/lbeckman314/codeVault/master/"$NF")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"$NF")"; printf "\n" }' >> liber8/index.txt
+    #ls | grep ".sublime-build" | awk '{ ORS = ",,"; print $0; print null; print null; printf "(www.github.com/lbeckman314/codeVault/master/"$NF")" " (raw.githubusercontent.com/lbeckman314/codeVault/master/"$NF")"; printf "\n" }' >> liber8/index.txt
     done #> result.txt
 
 
@@ -201,10 +213,22 @@ tr -d ')' < liber8/index.txt > temp.txt && mv temp.txt liber8/index.txt     #del
 
 sed -i 's/https:/<a href="https:/g' liber8/index.txt    #add <a href="" to all https:
 sed -i 's/.cpp\s/.cpp">github<\/a>/g' liber8/index.txt  #add closing a tag to github  address
+sed -i 's/\.sh\s/\.sh">github<\/a>/g' liber8/index.txt  #add closing a tag to github  address
+sed -i 's/.py\s/.py">github<\/a>/g' liber8/index.txt  #add closing a tag to github  address
+sed -i 's/.md\s/.md">github<\/a>/g' liber8/index.txt  #add closing a tag to github  address
+
+
+#sed -i 's:.py</td>:.py"></a></td>:g' liber8/index.txt
+#sed -i 's:.sh</td>:.sh"></a></td>:g' liber8/index.txt
+
 
 sed -i 's/github<\/a>/github '"$githubPNG"'<\/a>/g' liber8/index.txt #add githubSVG 
 
 sed -i ':a;N;$!ba;s:.cpp</td>\n</tr>:.cpp"> raw code</a></td>\n</tr>:g' liber8/index.txt   #add raw code label
+sed -i ':a;N;$!ba;s:.sh</td>\n</tr>:.sh"> raw code</a></td>\n</tr>:g' liber8/index.txt   #add raw code label
+sed -i ':a;N;$!ba;s:.py</td>\n</tr>:.py"> raw code</a></td>\n</tr>:g' liber8/index.txt   #add raw code label
+sed -i ':a;N;$!ba;s:.md</td>\n</tr>:.md"> raw code</a></td>\n</tr>:g' liber8/index.txt   #add raw code label
+
 sed -i 's/raw code/<br \/>raw code '"$codePNG"'/g' liber8/index.txt   #add line break and codeSVG to raw code label
 
 
@@ -239,8 +263,5 @@ echo "$(cat liber8/htmlFooter.html)" >> liber8/index.txt
 
 
 mv liber8/index.txt liber8/index.html
-
-
 cp liber8/index.html ~/Documents/website/code/index.md
-
 mv liber8/index.md README.md

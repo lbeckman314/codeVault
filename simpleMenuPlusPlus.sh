@@ -1,14 +1,14 @@
 #!/bin/bash
 
-#----------------------------------------------------------------------------------------------------------
-# AUTHOR ---------- liam beckman
-# DATE ------------ 07 december 2016 wednesday
-# PURPOSE --------- This program provides a (new and sexier!) menu interface for common *NIX activities
-# SOURCES --------- none
-# ASSIGNMENT ------ cs140u assignment 7 (due 07 december 2016 wednesday)
-# COMPILED WITH --- GNU bash, version 4.3.46(1)-release (x86_64-pc-linux-gnu)
-#-----------------------------------------------------------------------------------------------------------
-
+#------------------------------------------------------------------------------------------------------
+# PURPOSE ------------ This program provides a (new and sexier!) menu interface for common *NIX activities
+# DATE --------------- 07 december 2016 wednesday
+# AUTHOR ------------- liam beckman
+# SOURCES ------------ none
+# ASSIGNMENT --------- cs140u assignment 7 (due 07 december 2016 wednesday)
+# WRITTEN WITH ------- Sublime Text 3 Build 3126
+# COMPILED WITH ------ GNU bash, version 4.3.46(1)-release (x86_64-pc-linux-gnu)        
+#-------------------------------------------------------------------------------------------------------
 
     #FUNCTION DEFINITIONS
 #---------------------------------------------------------------------------#
